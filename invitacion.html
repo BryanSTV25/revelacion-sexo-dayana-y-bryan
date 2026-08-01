@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!-- Información básica -->
+        <title>Revelación de nuestro bebé | Dayana & Bryan</title>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description"
+              content="Acompáñanos a descubrir si nuestro bebé será niño o niña. ¡Nos encantaría compartir este momento tan especial contigo!">
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="es_EC">
+        <meta property="og:title" content="💙 Revelación de nuestro bebé 💗">
+        <meta property="og:description"
+              content="Acompáñanos a descubrir si nuestro bebé será niño o niña. ¡Te esperamos!">
+
+        <meta property="og:url"
+              content="https://tudominio.com/invitacion/">
+
+        <meta property="og:image"
+              content="https://tudominio.com/portada-invitacion-1.png">
+
+        <meta property="og:image:secure_url"
+              content="https://tudominio.com/portada-invitacion-1.png">
+
+        <meta property="og:image:type"
+              content="image/jpeg">
+
+        <meta property="og:image:width"
+              content="1200">
+
+        <meta property="og:image:height"
+              content="630">
+
+        <meta property="og:site_name"
+              content="Invitación Revelación">
+
+        <!-- Twitter (también sirve para algunas aplicaciones) -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title"
+              content="💙 Revelación de nuestro bebé 💗">
+        <meta name="twitter:description"
+              content="Acompáñanos a descubrir si será niño o niña.">
+        <meta name="twitter:image"
+              content="https://tudominio.com/portada-invitacion-1.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --cream: #f7f2e8;
+                --paper: rgba(255, 253, 248, 0.84);
+                --gold: #b58a4a;
+                --gold-light: #decaa5;
+                --green: #557463;
+                --green-light: #9bb09f;
+                --rose: #d9a6a7;
+                --blue: #9cb9c7;
+                --brown: #7f654f;
+                --ink: #5d5147;
+                --shadow: 0 18px 50px rgba(111, 91, 66, 0.18);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                overflow: hidden;
+            }
+
+            h1,h2,h3{
+                font-family:'Playfair Display', serif;
+            }
+
+            body{
+                font-family:'Poppins', sans-serif;
+            }
+
+            body {
+                color: var(--ink);
+                background:
+                    radial-gradient(circle at 15% 12%, rgba(255,255,255,.9), transparent 28%),
+                    radial-gradient(circle at 90% 78%, rgba(231,221,201,.45), transparent 36%),
+                    linear-gradient(135deg, #fbf8f1 0%, #f3ecdf 100%);
+                font-family: Georgia, "Times New Roman", serif;
+            }
+
+            button {
+                font: inherit;
+            }
+
+            .app {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                isolation: isolate;
+            }
+
+            .paper-texture {
+                position: fixed;
+                inset: 0;
+                z-index: -4;
+                pointer-events: none;
+                opacity: .35;
+                background-image:
+                    repeating-linear-gradient(0deg, rgba(92,72,51,.025) 0 1px, transparent 1px 4px),
+                    repeating-linear-gradient(90deg, rgba(255,255,255,.25) 0 1px, transparent 1px 5px);
+                mix-blend-mode: multiply;
+            }
+
+            .botanical {
+                position: fixed;
+                width: min(34vw, 360px);
+                z-index: -1;
+                opacity: .72;
+                filter: drop-shadow(0 8px 12px rgba(67,93,75,.08));
+                pointer-events: none;
+            }
+
+            .botanical.tl {
+                top: -5%;
+                left: -6%;
+                transform: rotate(-8deg);
+            }
+            .botanical.br {
+                right: -8%;
+                bottom: -8%;
+                transform: rotate(168deg);
+            }
+
+            .sparkles {
+                position: fixed;
+                inset: 0;
+                z-index: -2;
+                pointer-events: none;
+                overflow: hidden;
+            }
+
+            .sparkles span {
+                position: absolute;
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: radial-gradient(circle, #fff8d9 0 25%, #d7b36d 35% 55%, transparent 62%);
+                opacity: .55;
+                animation: twinkle 2.8s ease-in-out infinite;
+            }
+
+            .stage {
+                position: relative;
+                width: 100%;
+                height: 100%;
+            }
+
+            .slide {
+                position: absolute;
+                inset: 0;
+                display: grid;
+                place-items: center;
+                padding: clamp(22px, 5vw, 58px) 20px 92px;
+                opacity: 0;
+                visibility: hidden;
+                transform: scale(1.02);
+                transition: opacity .9s ease, transform 1.2s ease, visibility 0s linear .9s;
+            }
+
+            .slide.active {
+                opacity: 1;
+                visibility: visible;
+                transform: scale(1);
+                transition-delay: 0s;
+            }
+
+            .card {
+                position: relative;
+                width: min(92vw, 560px);
+                min-height: min(76vh, 760px);
+                padding: clamp(34px, 5vh, 58px) clamp(26px, 7vw, 58px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                overflow: hidden;
+                border: 1px solid rgba(181,138,74,.25);
+                border-radius: 34px 34px 90px 34px;
+                background:
+                    linear-gradient(rgba(255,255,255,.82), rgba(255,253,248,.76)),
+                    radial-gradient(circle at 18% 20%, rgba(220,203,173,.2), transparent 35%);
+                backdrop-filter: blur(8px);
+                box-shadow: var(--shadow);
+            }
+
+            .card::before {
+                content: "";
+                position: absolute;
+                inset: 13px;
+                border: 1px solid rgba(181,138,74,.14);
+                border-radius: 26px 26px 76px 26px;
+                pointer-events: none;
+            }
+
+            .eyebrow {
+                margin: 0 0 12px;
+                color: var(--green);
+                font-family: Arial, sans-serif;
+                font-size: clamp(.68rem, 1.9vw, .82rem);
+                font-weight: 700;
+                letter-spacing: .28em;
+                text-transform: uppercase;
+            }
+
+            h1, h2, p {
+                margin-top: 0;
+            }
+
+            .script {
+                margin-bottom: 10px;
+                color: var(--gold);
+                font-family: "Brush Script MT", "Segoe Script", cursive;
+                font-size: clamp(3.1rem, 11vw, 6rem);
+                font-weight: 400;
+                line-height: .95;
+                text-shadow: 0 2px 0 rgba(255,255,255,.7);
+            }
+
+            .title {
+                margin-bottom: 18px;
+                color: var(--brown);
+                font-size: clamp(1.85rem, 6vw, 3.3rem);
+                font-weight: 500;
+                line-height: 1.08;
+            }
+
+            .lead {
+                max-width: 340px;
+                margin-bottom: 16px;
+                font-size: clamp(.82rem, 2.4vw, .98rem);
+                line-height: 1.5;
+                color: var(--muted);
+            }
+
+            .names {
+                color: var(--gold);
+                font-family: "Brush Script MT", "Segoe Script", cursive;
+                font-size: clamp(2.2rem, 7vw, 4rem);
+                line-height: 1;
+            }
+
+            .divider {
+                width: 116px;
+                height: 18px;
+                margin: 8px auto 22px;
+                background: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='24' viewBox='0 0 140 24'%3E%3Cpath d='M5 12h42c7 0 9-8 16-8 8 0 8 16 16 16 7 0 9-8 16-8h40' fill='none' stroke='%23b58a4a' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='70' cy='12' r='3.2' fill='%23b58a4a'/%3E%3C/svg%3E");
+                opacity: .86;
+            }
+
+            .details {
+                width: 100%;
+                display: grid;
+                gap: 12px;
+                margin-top: 8px;
+            }
+
+            .detail {
+                display: grid;
+                grid-template-columns: 42px 1fr;
+                gap: 12px;
+                align-items: center;
+                padding: 12px 15px;
+                border: 1px solid rgba(181,138,74,.18);
+                border-radius: 18px;
+                background: rgba(255,255,255,.48);
+                text-align: left;
+            }
+
+            .detail strong {
+                color: var(--brown);
+            }
+            .detail small {
+                display: block;
+                margin-top: 3px;
+                opacity: .72;
+            }
+
+            .icon {
+                width: 38px;
+                height: 38px;
+                display: grid;
+                place-items: center;
+                border-radius: 50%;
+                background: rgba(181,138,74,.11);
+                color: var(--gold);
+                font-size: 1.15rem;
+            }
+
+            .teams {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                margin-top: 4px;
+            }
+
+            .team {
+                min-height: 165px;          /* Antes 205px */
+                padding: 14px 12px 12px;    /* Antes 22px 14px 16px */
+                border-radius: 60px 60px 20px 20px;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+
+                border: 1px solid rgba(255,255,255,.8);
+                box-shadow: inset 0 0 0 1px rgba(120,94,70,.05),
+                    var(--shadow-soft);
+
+                transition: .35s;
+            }
+
+            .team:hover{
+                transform: translateY(-4px);
+            }
+
+            .team.boy {
+                background: linear-gradient(#edf5f7, #c9dce4);
+            }
+            .team.girl {
+                background: linear-gradient(#fbf0f1, #e8c8ca);
+            }
+
+            .team .bear{
+                font-size:3.3rem;      /* Antes 4.4rem */
+                margin-bottom:6px;
+            }
+
+            .team h3{
+                margin:6px 0 2px;
+                font-size:1.25rem;
+                font-weight:700;
+            }
+
+            .team p{
+                font-size:.86rem;
+                line-height:1.45;
+            }
+
+            .rainbows {
+                display: flex;
+                justify-content: center;
+                gap: 22px;
+                margin: 5px 0 20px;
+            }
+
+            .rainbow {
+                width: 110px;
+                height: 66px;
+                border-radius: 110px 110px 0 0;
+                border: 14px solid var(--rose);
+                border-bottom: 0;
+                position: relative;
+                opacity: .86;
+            }
+
+            .rainbow::before,
+            .rainbow::after {
+                content: "";
+                position: absolute;
+                border-radius: inherit;
+                border-bottom: 0;
+            }
+
+            .rainbow::before {
+                inset: 7px;
+                border: 11px solid #d5bd9b;
+                border-bottom: 0;
+            }
+            .rainbow::after {
+                inset: 20px;
+                border: 9px solid var(--blue);
+                border-bottom: 0;
+            }
+
+            .balloon {
+                position: absolute;
+                width: 70px;
+                height: 92px;
+                border-radius: 50% 50% 45% 45%;
+                background: radial-gradient(circle at 35% 25%, #fffaf0, #e2cda7 56%, #b38f61 100%);
+                box-shadow: inset -7px -8px 12px rgba(121,89,51,.17), 0 10px 18px rgba(95,75,50,.14);
+                animation: float 4.7s ease-in-out infinite;
+            }
+
+            .balloon::before,
+            .balloon::after {
+                content: "";
+                position: absolute;
+            }
+
+            .balloon::before {
+                left: 50%;
+                bottom: -35px;
+                width: 1px;
+                height: 35px;
+                background: rgba(111,84,53,.55);
+            }
+
+            .balloon::after {
+                left: calc(50% - 8px);
+                bottom: -47px;
+                width: 16px;
+                height: 12px;
+                border-radius: 2px 2px 5px 5px;
+                background: #8f6f4e;
+            }
+
+            .balloon.one {
+                top: 8%;
+                right: 6%;
+                transform: scale(.72);
+            }
+            .balloon.two {
+                bottom: 11%;
+                left: 5%;
+                transform: scale(.53);
+                animation-delay: -2s;
+            }
+
+            .cloud {
+                position: absolute;
+                width: 88px;
+                height: 28px;
+                border-radius: 30px;
+                background: rgba(255,255,255,.8);
+                filter: drop-shadow(0 6px 10px rgba(87,75,61,.08));
+                animation: drift 8s ease-in-out infinite;
+            }
+
+            .cloud::before, .cloud::after {
+                content: "";
+                position: absolute;
+                bottom: 4px;
+                border-radius: 50%;
+                background: inherit;
+            }
+
+            .cloud::before {
+                left: 14px;
+                width: 38px;
+                height: 38px;
+            }
+            .cloud::after {
+                right: 12px;
+                width: 30px;
+                height: 30px;
+            }
+            .cloud.c1 {
+                top: 16%;
+                left: 6%;
+            }
+            .cloud.c2 {
+                right: 5%;
+                bottom: 19%;
+                animation-delay: -3s;
+                transform: scale(.75);
+            }
+
+            .star {
+                position: absolute;
+                color: #d2aa62;
+                font-size: 1.25rem;
+                animation: twinkle 2s ease-in-out infinite;
+            }
+            .star.s1 {
+                top: 24%;
+                right: 18%;
+            }
+            .star.s2 {
+                bottom: 20%;
+                left: 16%;
+                animation-delay: -.7s;
+            }
+            .star.s3 {
+                top: 14%;
+                left: 26%;
+                animation-delay: -1.2s;
+            }
+
+            .reveal-orb {
+                width: min(28vw, 130px);
+                aspect-ratio: 1;
+                display: grid;
+                place-items: center;
+                margin: 5px 0 13px;
+                border-radius: 50%;
+                position: relative;
+                background: conic-gradient(
+                    from 25deg,
+                    var(--rose),
+                    #f4e4de,
+                    var(--blue),
+                    #edf3ef,
+                    var(--rose)
+                    );
+                box-shadow: 0 9px 22px rgba(111, 91, 66, .17);
+                animation: breathe 3.2s ease-in-out infinite;
+            }
+
+            .reveal-orb::after {
+                content: "?";
+                width: 72%;
+                aspect-ratio: 1;
+                display: grid;
+                place-items: center;
+                border-radius: 50%;
+                color: var(--gold);
+                background: rgba(255,253,248,.91);
+                font-size: clamp(4.2rem, 14vw, 7rem);
+                box-shadow: inset 0 0 0 1px rgba(181,138,74,.18);
+            }
+
+            .controls {
+                position: fixed;
+                left: 50%;
+                bottom: 20px;
+                z-index: 20;
+                transform: translateX(-50%);
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 9px 13px;
+                border: 1px solid rgba(181,138,74,.2);
+                border-radius: 999px;
+                background: rgba(255,253,248,.74);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 12px 30px rgba(95,77,58,.12);
+            }
+
+            .nav-btn, .play-btn {
+                width: 36px;
+                height: 36px;
+                border: 0;
+                border-radius: 50%;
+                cursor: pointer;
+                color: var(--brown);
+                background: rgba(181,138,74,.1);
+                transition: transform .2s ease, background .2s ease;
+            }
+
+            .nav-btn:hover, .play-btn:hover {
+                transform: scale(1.08);
+                background: rgba(181,138,74,.2);
+            }
+
+            .dots {
+                display: flex;
+                gap: 7px;
+            }
+            .dot {
+                width: 8px;
+                height: 8px;
+                padding: 0;
+                border: 0;
+                border-radius: 50%;
+                cursor: pointer;
+                background: rgba(127,101,79,.23);
+                transition: width .3s ease, background .3s ease;
+            }
+            .dot.active {
+                width: 24px;
+                border-radius: 10px;
+                background: var(--gold);
+            }
+
+            .progress {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                z-index: 30;
+                height: 3px;
+                width: 0;
+                background: linear-gradient(90deg, var(--blue), var(--gold), var(--rose));
+            }
+
+            .active .animate-up {
+                animation: rise .95s both;
+            }
+            .active .delay-1 {
+                animation-delay: .15s;
+            }
+            .active .delay-2 {
+                animation-delay: .3s;
+            }
+            .active .delay-3 {
+                animation-delay: .45s;
+            }
+            .active .delay-4 {
+                animation-delay: .6s;
+            }
+
+            .signature {
+                position: absolute;
+                bottom: 18px;
+                color: rgba(93,81,71,.55);
+                font-size: .75rem;
+                letter-spacing: .08em;
+            }
+
+            .whatsapp-btn{
+
+                display:inline-flex;
+                align-items:center;
+                gap:12px;
+
+                padding:14px 28px;
+
+                background:linear-gradient(
+                    135deg,
+                    var(--gold),
+                    #D6B47A
+                    );
+
+                color:white;
+
+                text-decoration:none;
+
+                border-radius:40px;
+
+                font-weight:600;
+
+                letter-spacing:.03em;
+
+                box-shadow:0 12px 30px rgba(196,154,90,.25);
+
+                transition:.35s;
+
+            }
+
+            .whatsapp-btn:hover{
+
+                background:linear-gradient(
+                    135deg,
+                    #B88B48,
+                    var(--gold)
+                    );
+
+                transform:translateY(-3px);
+
+            }
+
+            @keyframes rise {
+                from {
+                    opacity: 0;
+                    transform: translateY(24px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            @keyframes float {
+                0%,100% {
+                    margin-top: 0;
+                }
+                50% {
+                    margin-top: -14px;
+                }
+            }
+            @keyframes drift {
+                0%,100% {
+                    transform: translateX(0);
+                }
+                50% {
+                    transform: translateX(15px);
+                }
+            }
+            @keyframes twinkle {
+                0%,100% {
+                    opacity: .25;
+                    transform: scale(.75) rotate(0);
+                }
+                50% {
+                    opacity: .95;
+                    transform: scale(1.15) rotate(25deg);
+                }
+            }
+            @keyframes breathe {
+                0%,100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.035);
+                }
+            }
+            @keyframes fill {
+                from {
+                    width: 0;
+                }
+                to {
+                    width: 100%;
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+
+                html,
+                body {
+                    width: 100% !important;
+                    min-width: 100% !important;
+                    height: 100% !important;
+                    margin: 0 !important;
+
+                    zoom: 1 !important;
+                    transform: none !important;
+                    transform-origin: initial !important;
+                }
+
+                .app,
+                .stage {
+                    width: 100vw !important;
+                    height: 100dvh !important;
+                    min-height: 100dvh !important;
+                }
+
+                .slide {
+                    width: 100vw !important;
+                    height: 100dvh !important;
+                    inset: 0 !important;
+
+                    display: flex !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+
+                    padding: 10px 10px 76px !important;
+                }
+
+                .card {
+                    width: calc(100vw - 20px) !important;
+                    max-width: none !important;
+
+                    min-height: calc(100dvh - 100px) !important;
+                    max-height: calc(100dvh - 100px) !important;
+
+                    margin: 0 !important;
+                    padding: 24px 18px 30px !important;
+
+                    border-radius: 26px 26px 62px 26px !important;
+
+                    transform: none !important;
+                    zoom: 1 !important;
+                }
+
+                .card::before {
+                    inset: 9px !important;
+                    border-radius: 19px 19px 53px 19px !important;
+                }
+
+                .eyebrow {
+                    margin-bottom: 8px !important;
+                    font-size: .78rem !important;
+                    letter-spacing: .22em !important;
+                }
+
+                .title {
+                    margin-bottom: 13px !important;
+                    font-size: clamp(2.25rem, 11vw, 3.2rem) !important;
+                    line-height: 1 !important;
+                }
+
+                .script {
+                    margin-bottom: 8px !important;
+                    font-size: clamp(3.3rem, 16vw, 5rem) !important;
+                    line-height: .9 !important;
+                }
+
+                .lead {
+                    width: 100% !important;
+                    max-width: 380px !important;
+                    margin-bottom: 16px !important;
+
+                    font-size: clamp(.95rem, 4vw, 1.08rem) !important;
+                    line-height: 1.55 !important;
+                }
+
+                .names {
+                    font-size: clamp(2.6rem, 13vw, 4.2rem) !important;
+                }
+
+                .teams {
+                    width: 100% !important;
+                    gap: 10px !important;
+                }
+
+                .team {
+                    min-height: 155px !important;
+                    padding: 12px 8px 10px !important;
+                }
+
+                .team .bear {
+                    font-size: 3.2rem !important;
+                }
+
+                .team h3 {
+                    font-size: 1.15rem !important;
+                }
+
+                .team p {
+                    font-size: .78rem !important;
+                }
+
+                .details {
+                    width: 100% !important;
+                }
+
+                .detail {
+                    padding: 10px 12px !important;
+                    font-size: .9rem !important;
+                }
+
+                .reveal-orb {
+                    width: min(40vw, 155px) !important;
+                }
+
+                .controls {
+                    bottom: 8px !important;
+                    transform: translateX(-50%) !important;
+                    zoom: 1 !important;
+                }
+            }
+
+            @media (max-width: 390px) {
+
+                .card {
+                    padding: 21px 14px 27px;
+                }
+
+                .title {
+                    font-size: clamp(2rem, 10vw, 2.7rem);
+                }
+
+                .script {
+                    font-size: clamp(2.8rem, 14vw, 4.2rem);
+                }
+
+                .lead {
+                    font-size: .9rem;
+                    line-height: 1.48;
+                }
+
+                .team {
+                    min-height: 145px;
+                    padding-inline: 6px;
+                }
+
+                .team .bear {
+                    font-size: 2.8rem;
+                }
+
+                .team h3 {
+                    font-size: 1.05rem;
+                }
+
+                .team p {
+                    font-size: .7rem;
+                }
+
+                .detail {
+                    padding: 8px 10px;
+                    font-size: .82rem;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+
+                *,
+                *::before,
+                *::after {
+                    animation-duration: .01ms !important;
+                    animation-iteration-count: 1 !important;
+                    scroll-behavior: auto !important;
+                    transition-duration: .01ms !important;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="app">
+            <div class="paper-texture"></div>
+
+            <svg class="botanical tl" viewBox="0 0 360 360" aria-hidden="true">
+            <g fill="none" stroke="#597864" stroke-width="4" stroke-linecap="round">
+            <path d="M10 42C96 90 120 164 170 325" opacity=".55"/>
+            <path d="M54 23c18 58 63 91 104 121" opacity=".45"/>
+            </g>
+            <g fill="#8da596" opacity=".58">
+            <ellipse cx="55" cy="66" rx="25" ry="52" transform="rotate(-45 55 66)"/>
+            <ellipse cx="102" cy="98" rx="22" ry="48" transform="rotate(-42 102 98)"/>
+            <ellipse cx="126" cy="159" rx="24" ry="52" transform="rotate(-33 126 159)"/>
+            <ellipse cx="154" cy="224" rx="22" ry="48" transform="rotate(-25 154 224)"/>
+            </g>
+            <g fill="#3f6b50" opacity=".72">
+            <ellipse cx="25" cy="20" rx="30" ry="58" transform="rotate(-60 25 20)"/>
+            <ellipse cx="77" cy="22" rx="26" ry="56" transform="rotate(-55 77 22)"/>
+            <ellipse cx="76" cy="129" rx="24" ry="50" transform="rotate(-58 76 129)"/>
+            </g>
+            <g fill="#cad5cd" opacity=".68">
+            <ellipse cx="131" cy="46" rx="23" ry="50" transform="rotate(-44 131 46)"/>
+            <ellipse cx="166" cy="111" rx="21" ry="48" transform="rotate(-36 166 111)"/>
+            <ellipse cx="186" cy="178" rx="21" ry="46" transform="rotate(-22 186 178)"/>
+            </g>
+            </svg>
+
+            <svg class="botanical br" viewBox="0 0 360 360" aria-hidden="true">
+            <g fill="none" stroke="#597864" stroke-width="4" stroke-linecap="round"><path d="M10 42C96 90 120 164 170 325" opacity=".55"/></g>
+            <g fill="#8da596" opacity=".58">
+            <ellipse cx="55" cy="66" rx="25" ry="52" transform="rotate(-45 55 66)"/>
+            <ellipse cx="102" cy="98" rx="22" ry="48" transform="rotate(-42 102 98)"/>
+            <ellipse cx="126" cy="159" rx="24" ry="52" transform="rotate(-33 126 159)"/>
+            </g>
+            <g fill="#3f6b50" opacity=".68">
+            <ellipse cx="25" cy="20" rx="30" ry="58" transform="rotate(-60 25 20)"/>
+            <ellipse cx="77" cy="129" rx="24" ry="50" transform="rotate(-58 76 129)"/>
+            </g>
+            </svg>
+
+            <div class="sparkles" aria-hidden="true">
+                <span style="left:8%;top:24%;animation-delay:-.2s"></span>
+                <span style="left:21%;top:72%;animation-delay:-1.3s"></span>
+                <span style="left:78%;top:14%;animation-delay:-.8s"></span>
+                <span style="left:91%;top:56%;animation-delay:-1.9s"></span>
+                <span style="left:70%;top:84%;animation-delay:-.5s"></span>
+            </div>
+
+            <main class="stage" aria-live="polite">
+                <section class="slide active" data-duration="6500">
+                    <article class="card">
+                        <div class="balloon one"></div><div class="balloon two"></div>
+                        <div class="cloud c1"></div><div class="cloud c2"></div>
+                        <span class="star s1">✦</span><span class="star s2">✧</span><span class="star s3">✦</span>
+                        <p class="eyebrow animate-up">Una dulce noticia</p>
+                        <h1 class="script animate-up delay-1">Hola...</h1>
+                        <h2 class="title animate-up delay-2">Familia y amigos</h2>
+                        <div class="divider animate-up delay-3"></div>
+                        <p class="lead animate-up delay-3">Hay una pequeña personita en camino y queremos compartir con ustedes un momento muy especial.</p>
+                        <p class="signature animate-up delay-4">DESLIZA O USA LAS FLECHAS</p>
+                    </article>
+                </section>
+
+                <section class="slide" data-duration="6500">
+                    <article class="card">
+                        <div class="rainbows animate-up"><div class="rainbow"></div></div>
+                        <p class="eyebrow animate-up delay-1">La gran pregunta</p>
+                        <h2 class="title animate-up delay-2">¿Será niño o será niña?</h2>
+                        <div class="reveal-orb animate-up delay-3"></div>
+                        <p class="lead animate-up delay-4">Cada latido nos llena de emoción, cada día aumenta la ilusión. Falta muy poco para descubrir si nuestro pequeño milagro será niño o niña.</p>
+                    </article>
+                </section>
+
+                <section class="slide" data-duration="6500">
+                    <article class="card">
+                        <span class="star s1">✦</span><span class="star s2">✧</span>
+                        <p class="eyebrow animate-up">Con mucho amor</p>
+                        <h2 class="title animate-up delay-1">Acompaña a mis papis</h2>
+                        <p class="names animate-up delay-2">Dayana &amp; Bryan</p>
+                        <div class="divider animate-up delay-3"></div>
+                        <p class="lead animate-up delay-3">En la revelación de mi sexo. Tu presencia hará aún más inolvidable este día.</p>
+                        <div class="rainbows animate-up delay-4"><div class="rainbow"></div></div>
+                    </article>
+                </section>
+
+                <section class="slide" data-duration="7200">
+                    <article class="card">
+                        <p class="eyebrow animate-up">Reserva la fecha</p>
+                        <h2 class="title animate-up delay-1">Nuestra celebración</h2>
+                        <div class="divider animate-up delay-2"></div>
+                        <div class="details">
+                            <div class="detail animate-up delay-2"><div class="icon">📅</div><div><strong>Sábado, 15 de agosto del 2026</strong><small>Fecha</small></div></div>
+                            <div class="detail animate-up delay-3"><div class="icon">🕓</div><div><strong>11:00</strong><small>Hora</small></div></div>
+                            <div class="detail animate-up delay-4"><div class="icon">📍</div><div><strong>Casa de la Tía Elena</strong><small>Dirección</small></div></div>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="slide" data-duration="7600">
+                    <article class="card">
+                        <p class="eyebrow animate-up">Elige tu equipo</p>
+                        <h2 class="title animate-up delay-1">¿Qué dice tu corazón? 💙🩷</h2>
+                        <div class="teams">
+                            <div class="team boy animate-up delay-2"><div class="bear">👶</div><h3>Team Niño</h3><p>Lleva pañales para apoyar tu elección.</p></div>
+                            <div class="team girl animate-up delay-3"><div class="bear">👶🎀</div><h3>Team Niña</h3><p>Lleva toallitas para apoyar tu elección.</p></div>
+                        </div>
+                        <p class="lead animate-up delay-4" style="margin-top:18px;margin-bottom:0;font-size:1rem">Lo más importante será compartir juntos esta hermosa espera.</p>
+                    </article>
+                </section>
+
+                <section class="slide" data-duration="6500">
+                    <article class="card">
+                        <div class="balloon one"></div><div class="cloud c1"></div>
+                        <p class="eyebrow animate-up">Te esperamos</p>
+                        <h2 class="script animate-up delay-1">Con amor</h2>
+                        <p class="lead animate-up delay-2">Gracias por ser parte de nuestra historia y celebrar la llegada de nuestro bebé.</p>
+                        <div class="divider animate-up delay-3"></div>
+                        <p class="names animate-up delay-3">Dayana &amp; Bryan</p>
+                        <p class="lead animate-up delay-4" style="margin-top:18px;font-size:1rem">Por favor, confirma tu asistencia.</p>
+                        <a
+                            class="whatsapp-btn"
+                            href="https://wa.me/593999999999?text=Hola,%20gracias%20por%20pensar%20en%20m%C3%AD.%20Con%20mucho%20gusto%20confirmo%20mi%20asistencia%20a%20la%20revelaci%C3%B3n.%20%C2%A1Nos%20vemos%20pronto!"
+                            target="_blank">
+
+                            <span class="wa-icon">💬</span>
+                            Confirmo mi asistencia
+
+                        </a>
+                    </article>
+                </section>
+            </main>
+
+            <div class="controls" aria-label="Controles de la invitación">
+                <button class="nav-btn" id="prev" aria-label="Pantalla anterior">‹</button>
+                <button class="play-btn" id="play" aria-label="Pausar reproducción">Ⅱ</button>
+                <div class="dots" id="dots" aria-label="Seleccionar pantalla"></div>
+                <button class="nav-btn" id="next" aria-label="Pantalla siguiente">›</button>
+            </div>
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <script>
+            (() => {
+                const slides = [...document.querySelectorAll('.slide')];
+                const dotsBox = document.getElementById('dots');
+                const progress = document.getElementById('progress');
+                const playBtn = document.getElementById('play');
+                let index = 0;
+                let timer = null;
+                let playing = true;
+                let touchStartX = 0;
+
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.className = `dot${i === 0 ? ' active' : ''}`;
+                    dot.type = 'button';
+                    dot.setAttribute('aria-label', `Ir a pantalla ${i + 1}`);
+                    dot.addEventListener('click', () => show(i));
+                    dotsBox.appendChild(dot);
+                });
+
+                const dots = [...document.querySelectorAll('.dot')];
+
+                function restartProgress(duration) {
+                    progress.style.animation = 'none';
+                    progress.offsetHeight;
+                    if (playing)
+                        progress.style.animation = `fill ${duration}ms linear forwards`;
+                }
+
+                function schedule() {
+                    clearTimeout(timer);
+                    const duration = Number(slides[index].dataset.duration || 6500);
+                    restartProgress(duration);
+                    if (playing)
+                        timer = setTimeout(() => show((index + 1) % slides.length), duration);
+                }
+
+                function show(nextIndex) {
+                    index = (nextIndex + slides.length) % slides.length;
+                    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+                    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+                    schedule();
+                }
+
+                function togglePlay() {
+                    playing = !playing;
+                    playBtn.textContent = playing ? 'Ⅱ' : '▶';
+                    playBtn.setAttribute('aria-label', playing ? 'Pausar reproducción' : 'Reanudar reproducción');
+                    if (playing)
+                        schedule();
+                    else {
+                        clearTimeout(timer);
+                        progress.style.animationPlayState = 'paused';
+                    }
+                }
+
+                document.getElementById('prev').addEventListener('click', () => show(index - 1));
+                document.getElementById('next').addEventListener('click', () => show(index + 1));
+                playBtn.addEventListener('click', togglePlay);
+
+                document.addEventListener('keydown', event => {
+                    if (event.key === 'ArrowRight')
+                        show(index + 1);
+                    if (event.key === 'ArrowLeft')
+                        show(index - 1);
+                    if (event.key === ' ') {
+                        event.preventDefault();
+                        togglePlay();
+                    }
+                });
+
+                document.addEventListener('touchstart', event => {
+                    touchStartX = event.changedTouches[0].clientX;
+                }, {passive: true});
+
+                document.addEventListener('touchend', event => {
+                    const delta = event.changedTouches[0].clientX - touchStartX;
+                    if (Math.abs(delta) > 55)
+                        show(index + (delta < 0 ? 1 : -1));
+                }, {passive: true});
+
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden)
+                        clearTimeout(timer);
+                    else if (playing)
+                        schedule();
+                });
+
+                schedule();
+            })();
+        </script>
+    </body>
+</html>
